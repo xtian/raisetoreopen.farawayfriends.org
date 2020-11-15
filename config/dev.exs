@@ -50,7 +50,6 @@ config :raise_to_reopen, RaiseToReopenWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
-      ~r"priv/gettext/.*(po)$",
       ~r"lib/raise_to_reopen_web/(live|views)/.*(ex)$",
       ~r"lib/raise_to_reopen_web/templates/.*(eex)$"
     ]

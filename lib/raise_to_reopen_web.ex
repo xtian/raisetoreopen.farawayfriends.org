@@ -22,7 +22,6 @@ defmodule RaiseToReopenWeb do
       use Phoenix.Controller, namespace: RaiseToReopenWeb
 
       import Plug.Conn
-      import RaiseToReopenWeb.Gettext
       alias RaiseToReopenWeb.Router.Helpers, as: Routes
     end
   end
@@ -72,7 +71,6 @@ defmodule RaiseToReopenWeb do
   def channel do
     quote do
       use Phoenix.Channel
-      import RaiseToReopenWeb.Gettext
     end
   end
 
@@ -88,7 +86,6 @@ defmodule RaiseToReopenWeb do
       import Phoenix.View
 
       import RaiseToReopenWeb.ErrorHelpers
-      import RaiseToReopenWeb.Gettext
       alias RaiseToReopenWeb.Router.Helpers, as: Routes
     end
   end

@@ -7,7 +7,7 @@ defmodule RaiseToReopen.MixProject do
       version: "0.1.0",
       elixir: "~> 1.7",
       elixirc_paths: elixirc_paths(Mix.env()),
-      compilers: [:phoenix, :gettext] ++ Mix.compilers(),
+      compilers: [:phoenix] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
       deps: deps()
@@ -37,7 +37,6 @@ defmodule RaiseToReopen.MixProject do
       {:credo_contrib, "~> 0.2", only: [:dev, :test], runtime: false},
       {:dialyxir, "~> 1.0-rc", only: :dev, runtime: false},
       {:floki, ">= 0.0.0", only: :test},
-      {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:persistent_ets, "~> 0.2.1"},
       {:phoenix, "~> 1.5.4"},
