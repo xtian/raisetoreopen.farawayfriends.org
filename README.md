@@ -1,19 +1,14 @@
 # RaiseToReopen
 
-To start your Phoenix server:
+## Setup
 
-  * Install dependencies with `mix deps.get`
-  * Install Node.js dependencies with `npm install` inside the `assets` directory
-  * Start Phoenix endpoint with `mix phx.server`
+    bin/setup
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+## Starting the app
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+    bin/start
 
-## Learn more
+## Running the tests
 
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+    bin/test
+    mix dialyzer

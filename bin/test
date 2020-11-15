@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+cd "$(dirname "${BASH_SOURCE[0]}")/.."
+
+set -o errexit -o errtrace -o verbose
+
+mix format --check-formatted
+mix credo
+mix compile --all-warnings --warnings-as-errors
+mix test
+
+(
+  cd assets
+  ./node_modules/.bin/prettier --check "./*.js" "js/**/*" "css/**/*"
+)
