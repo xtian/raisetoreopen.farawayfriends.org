@@ -1,0 +1,14 @@
+/* This file is for your main application css. */
+
+@tailwind base;
+
+html {
+  font-size: 135%;
+  line-height: 125%;
+}
+
+@tailwind components;
+@tailwind utilities;
+
+@import "vendor/nprogress.css";
+@import "vendor/phoenix.css";

@@ -30,13 +30,15 @@ module.exports = (env, options) => {
         {
           test: /\.js$/,
           exclude: /node_modules/,
-          use: {
-            loader: "babel-loader",
-          },
+          use: { loader: "babel-loader" },
         },
         {
-          test: /\.[s]?css$/,
-          use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+          test: /\.css$/,
+          use: [
+            { loader: MiniCssExtractPlugin.loader },
+            { loader: "css-loader", options: { importLoaders: 1 } },
+            { loader: "postcss-loader" },
+          ],
         },
       ],
     },
