@@ -10,5 +10,9 @@ html {
 @tailwind components;
 @tailwind utilities;
 
+@import "utilities.css";
+
+@import "components/Flash.css";
+
 @import "vendor/nprogress.css";
 @import "vendor/phoenix.css";

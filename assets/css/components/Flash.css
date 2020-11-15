@@ -1,0 +1,11 @@
+.Flash {
+  @apply text-center text-white;
+}
+
+.Flash--error {
+  @apply bg-red;
+}
+
+.Flash--success {
+  @apply bg-green;
+}
