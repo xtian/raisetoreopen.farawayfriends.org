@@ -1,11 +1,11 @@
 .Flash {
-  @apply text-center text-white;
+  @apply fixed z-20 w-full pb-5 pt-6 font-bold text-center bg-white border-4;
 }
 
 .Flash--error {
-  @apply bg-red;
+  @apply text-red border-red;
 }
 
 .Flash--success {
-  @apply bg-green;
+  @apply text-green border-green;
 }

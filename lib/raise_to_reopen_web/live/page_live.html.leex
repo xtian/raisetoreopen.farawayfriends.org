@@ -1,0 +1,128 @@
+<header class="Header">
+  <a href="https://www.farawayfriends.org">
+    <h2 class="Header-logo">
+      <span class="sr-only">Far Away Friends</span>
+    </h2>
+  </a>
+  <div class="Header-bannerWrapper">
+    <h1 class="Header-banner">
+      <span class="sr-only">Raise to Reopen</span>
+      <span class="sr-only">12.1.20 | The $20k Day</p>
+    </h1>
+  </div>
+</header>
+
+<div class="AccentSectionA p-8 flex text-white items-center justify-center space-x-4">
+  <div class="ProgressBar relative z-10">
+    <div class="ProgressBar-filled" style="width: <%= @filled %>%"></div>
+    <div class="ProgressBar-pending" style="width: <%= @pending_fill %>%"></div>
+  </div>
+  <div class="relative z-10 font-bold tracking-widest w-36 text-right">$<%= delimit_integer(@raised) %>/20,000</div>
+</div>
+
+<div class="AccentSectionB flex flex-col items-center md:pb-8 lg:items-stretch lg:py-8 lg:space-x-32 lg:flex-row lg:justify-center">
+  <%= f = form_for @changeset, "#",
+    phx_change: :validate,
+    phx_submit: :save,
+    class: "relative z-10 w-full md:w-10/12 p-8 lg:p-0 lg:w-1/4 flex flex-col items-start text-sm"
+  %>
+    <div class="relative w-full mb-4">
+      <%= text_input f, :first_name, placeholder: "First Name", maxlength: 30,
+        class: "w-full p-4 border border-gray-100" %>
+      <%= error_tag f, :first_name %>
+    </div>
+
+    <div class="relative w-full mb-4">
+      <%= text_input f, :last_name, placeholder: "Last Name", maxlength: 30,
+        class: "w-full p-4 border border-gray-100" %>
+      <%= error_tag f, :last_name %>
+    </div>
+
+    <div class="relative w-full mb-4">
+      <%= email_input f, :email, placeholder: "Email Address",
+        class: "w-full p-4 border border-gray-100" %>
+      <%= error_tag f, :email %>
+    </div>
+
+    <label class="text-white mb-4">
+      <%= checkbox f, :public?, class: "text-lg mr-2" %>
+      Display my name publicly
+    </label>
+
+    <div class="w-full mb-4 flex justify-between text-xs space-x-4 text-center">
+      <a href="#" id="set-amount-25" phx-hook="SetAmount" data-amount="25"
+        class="flex-grow py-2 bg-white border border-gray-100 hover:border-yellow rounded-sm cursor-pointer">
+        $25</a>
+
+      <a href="#" id="set-amount-50" phx-hook="SetAmount" data-amount="50"
+        class="flex-grow py-2 bg-white border border-gray-100 hover:border-yellow rounded-sm cursor-pointer">
+        $50</a>
+
+      <a href="#" id="set-amount-100" phx-hook="SetAmount" data-amount="100"
+        class="flex-grow py-2 bg-white border border-gray-100 hover:border-yellow rounded-sm cursor-pointer">
+        $100</a>
+
+      <a href="#" id="set-amount-250" phx-hook="SetAmount" data-amount="250"
+        class="flex-grow py-2 bg-white border border-gray-100 hover:border-yellow rounded-sm cursor-pointer">
+        $250</a>
+    </div>
+
+    <div class="relative w-full mb-4">
+      <label class="bg-white border border-gray-100 flex items-center">
+        <div class="px-4 font-bold">$</div>
+        <%= text_input f, :amount, inputmode: "numeric", pattern: "[0-9]*", class: "js-amount px-2 py-4 w-full" %>
+      </label>
+      <%= error_tag f, :amount %>
+    </div>
+
+    <button class="place-self-center mt-4 px-8 py-4 bg-yellow uppercase rounded-md text-sm text-white tracking-widest">
+      Submit Pledge
+    </button>
+  </form>
+
+  <%= unless Enum.empty?(@pledges) do %>
+    <section class="relative z-10 p-8 w-full md:w-10/12 lg:w-1/4 bg-white text-sm">
+      <h1 class="font-bold text-yellow text-lg">Recent Pledges</h1>
+
+      <div class="overflow-scroll h-64 lg:h-full divide-y divide-gray-100">
+        <%= for {timestamp, pledge} <- @pledges do %>
+          <article class="py-3 space-y-2">
+            <%= if pledge.public? do %>
+              <%= pledge.first_name %> <%= pledge.last_name %>
+            <% else %>
+              Anonymous
+            <% end %>
+
+            <div>
+              <b>$<%= delimit_integer(pledge.amount) %></b>
+              <span class="text-gray-100">•</span>
+              <time><%= Timex.from_now(timestamp) %></time>
+            </div>
+          </article>
+        <% end %>
+      </div>
+    </section>
+  <% end %>
+</div>
+
+<footer class="p-16 text-xxs text-center space-y-6">
+  <div class="flex justify-center lg:justify-end space-x-3 mb-6 lg:mr-32">
+    <a class="Footer-social Footer-social--instagram" href="https://www.instagram.com/farawayfriendsglobal">
+      <div class="Footer-socialIcon"><span class="sr-only">Instagram</span></div>
+    </a>
+
+    <a class="Footer-social Footer-social--facebook" href="https://www.facebook.com/farawayfriends">
+      <div class="Footer-socialIcon"><span class="sr-only">Facebook</span></div>
+    </a>
+
+    <a class="Footer-social Footer-social--youtube" href="https://www.youtube.com/channel/UCrzjkqj5fXqw9ANOg6rw8tA">
+      <div class="Footer-socialIcon"><span class="sr-only">YouTube</span></div>
+    </a>
+  </div>
+
+  © 2020 - Forever | Far Away Friends, Inc. is a registered 501c3 nonprofit organization working to equip youth in rural Uganda with the tools to break cycles of poverty forever. All donations are tax deductible • <strong>EIN #46-4917506 • Questions?</strong> Email Team@farawayfriendsglobal.com
+
+  <div class="Footer-logoWrapper">
+    <div class="Footer-logo"></div>
+  </div>
+</footer>

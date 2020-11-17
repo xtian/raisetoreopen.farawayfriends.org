@@ -3,16 +3,28 @@
 @tailwind base;
 
 html {
-  font-size: 135%;
-  line-height: 125%;
+  font-size: 125%;
 }
 
 @tailwind components;
 @tailwind utilities;
 
+.w-36 {
+  width: 9rem;
+}
+
+.text-xxs {
+  font-size: 0.65rem;
+}
+
 @import "utilities.css";
 
+@import "components/AccentSectionA.css";
+@import "components/AccentSectionB.css";
 @import "components/Flash.css";
+@import "components/Footer.css";
+@import "components/Header.css";
+@import "components/ProgressBar.css";
 
 @import "vendor/nprogress.css";
 @import "vendor/phoenix.css";

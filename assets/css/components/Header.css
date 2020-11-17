@@ -1,0 +1,53 @@
+.Header {
+  @apply flex flex-col items-center relative pt-16 pb-10 bg-cover text-white uppercase;
+  background-image: url("../../images/jumping.jpg");
+  background-position: 50% 15%;
+}
+
+.Header::after {
+  @apply absolute top-0 left-0 h-full w-full z-0 bg-gray-600;
+  opacity: 0.17;
+  content: " ";
+}
+
+.Header-bannerWrapper {
+  @apply relative z-10;
+  max-width: 90%;
+  width: 2500px;
+}
+
+.Header-banner {
+  @apply w-full bg-center bg-contain bg-no-repeat;
+  background-image: url("../../images/banner.png");
+  padding-top: 32.4%;
+}
+
+.Header-logo {
+  @apply absolute top-0 left-0 m-4 z-10 bg-contain bg-center;
+  background-image: url("../../images/faf-logo.png");
+  height: 52px;
+  width: 87px;
+}
+
+@media (min-width: theme("screens.sm")) {
+  .Header-logo {
+    @apply mx-8 my-6;
+  }
+}
+
+@media (min-width: theme("screens.lg")) {
+  .Header {
+    /*@apply py-20;*/
+    background-position: 50% 10%;
+  }
+
+  .Header-bannerWrapper {
+    max-width: 70%;
+  }
+
+  .Header-logo {
+    @apply mx-8 my-6;
+    height: 127px;
+    width: 212px;
+  }
+}

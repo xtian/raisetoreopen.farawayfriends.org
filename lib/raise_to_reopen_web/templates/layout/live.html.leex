@@ -1,12 +1,12 @@
-<main role="main">
+<main role="main" class="text-gray-600">
   <p
-    class="Flash Flash--success u-hideIfEmpty mx-2 cursor-pointer"
+    class="Flash Flash--success u-hideIfEmpty cursor-pointer"
     role="alert"
     phx-click="lv:clear-flash"
     phx-value-key="info"><%= live_flash(@flash, :info) %></p>
 
   <p
-    class="Flash Flash--error u-hideIfEmpty mx-2 cursor-pointer"
+    class="Flash Flash--error u-hideIfEmpty cursor-pointer"
     role="alert"
     phx-click="lv:clear-flash"
     phx-value-key="error"><%= live_flash(@flash, :error) %></p>

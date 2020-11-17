@@ -10,9 +10,20 @@ module.exports = {
   theme: {
     colors: {
       black: "#000",
-      blue: "#2ab2b7",
+      blue: {
+        100: "#8accc7",
+        300: "#2ab2b7",
+      },
       green: "#a3c75c",
-      red: "#fc4a86",
+      gray: {
+        100: "#e0e0e0",
+        600: "#3b3b3b",
+      },
+      pink: {
+        100: "#fc4a86",
+        300: "#e94e82",
+      },
+      red: "#ff494c",
       white: "#fff",
       yellow: "#fbb018",
     },

@@ -4,4 +4,4 @@ cd "$(dirname "${BASH_SOURCE[0]}")/.."
 
 set -o errexit -o errtrace -o verbose
 
-mix deps.get
+mix setup

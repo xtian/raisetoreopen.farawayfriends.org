@@ -40,6 +40,10 @@ module.exports = (env, options) => {
             { loader: "postcss-loader" },
           ],
         },
+        {
+          test: /\.jpg|png|svg$/,
+          use: [{ loader: "file-loader" }],
+        },
       ],
     },
     plugins: [

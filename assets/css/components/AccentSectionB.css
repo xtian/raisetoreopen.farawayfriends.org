@@ -1,0 +1,10 @@
+.AccentSectionB {
+  @apply relative bg-cover bg-center;
+  background-image: url("../../images/class.jpg");
+}
+
+.AccentSectionB::after {
+  @apply absolute top-0 left-0 h-full w-full z-0 bg-blue-300;
+  opacity: 0.85;
+  content: " ";
+}

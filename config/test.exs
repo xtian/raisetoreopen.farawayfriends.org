@@ -1,5 +1,8 @@
 use Mix.Config
 
+config :raise_to_reopen,
+  pledges_table_file: Path.join(__DIR__, "../test/fixtures/pledges.tab")
+
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
 config :raise_to_reopen, RaiseToReopenWeb.Endpoint,

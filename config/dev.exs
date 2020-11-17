@@ -1,5 +1,8 @@
 use Mix.Config
 
+config :raise_to_reopen,
+  pledges_table_file: Path.join(__DIR__, "../test/fixtures/pledges.tab")
+
 # For development, we disable any cache and enable
 # debugging and code reloading.
 #

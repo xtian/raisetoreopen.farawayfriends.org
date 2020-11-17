@@ -1,0 +1,10 @@
+.AccentSectionA {
+  @apply relative bg-cover bg-center;
+  background-image: url("../../images/jumping-2.jpg");
+}
+
+.AccentSectionA::after {
+  @apply absolute top-0 left-0 h-full w-full z-0 bg-pink-300;
+  opacity: 0.76;
+  content: " ";
+}

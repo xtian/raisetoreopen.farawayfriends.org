@@ -4,6 +4,10 @@
   display: none;
 }
 
+.invalid-feedback {
+  @apply absolute z-20 p-2 bg-red w-full text-white;
+}
+
 .phx-click-loading {
   opacity: 0.5;
   transition: opacity 1s ease-out;

@@ -4,6 +4,8 @@ defmodule RaiseToReopen.Application do
   use Application
 
   def start(_type, _args) do
+    :ok = RaiseToReopen.Pledges.start_persistent_ets()
+
     children = [
       RaiseToReopenWeb.Telemetry,
       {Phoenix.PubSub, name: RaiseToReopen.PubSub},
