@@ -12,7 +12,7 @@ Hooks.SetAmount = {
     this.el.addEventListener("click", (ev) => {
       ev.preventDefault();
       input.value = amount;
-      this.el.dispatchEvent(new Event("change", { bubbles: true }));
+      input.dispatchEvent(new Event("change", { bubbles: true }));
     });
   },
 };

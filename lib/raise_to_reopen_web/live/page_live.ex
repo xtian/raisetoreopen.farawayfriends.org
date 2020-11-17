@@ -10,7 +10,7 @@ defmodule RaiseToReopenWeb.PageLive do
 
   @impl true
   def mount(_params, _session, socket) do
-    {:ok, socket |> reset_form() |> assign_pledges()}
+    {:ok, socket |> init_schedule_refresh() |> reset_form() |> assign_pledges()}
   end
 
   @impl true
@@ -41,6 +41,11 @@ defmodule RaiseToReopenWeb.PageLive do
     {:noreply, socket}
   end
 
+  @impl true
+  def handle_info(:refresh, socket) do
+    {:noreply, socket |> schedule_refresh() |> assign_pledges()}
+  end
+
   defp assign_pledges(socket) do
     pledges = Pledges.list_pledges()
     raised = Enum.reduce(pledges, 0, fn {_, _, p}, acc -> p.amount + acc end)
@@ -64,7 +69,19 @@ defmodule RaiseToReopenWeb.PageLive do
     min(amount / @goal, 1) * 100
   end
 
+  defp init_schedule_refresh(socket) do
+    if connected?(socket) do
+      schedule_refresh(socket)
+    else
+      assign(socket, timer: nil)
+    end
+  end
+
   defp reset_form(socket) do
     assign(socket, changeset: Pledges.change_pledge(%Pledge{}), pending_fill: 0)
+  end
+
+  defp schedule_refresh(socket) do
+    assign(socket, timer: Process.send_after(self(), :refresh, 1000))
   end
 end
