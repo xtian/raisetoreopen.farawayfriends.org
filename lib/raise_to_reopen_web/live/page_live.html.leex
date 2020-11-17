@@ -85,7 +85,7 @@
       <h1 class="font-bold text-yellow text-lg">Recent Pledges</h1>
 
       <div class="overflow-scroll h-64 lg:h-full divide-y divide-gray-100">
-        <%= for {timestamp, pledge} <- @pledges do %>
+        <%= for {timestamp, _, pledge} <- @pledges do %>
           <article class="py-3 space-y-2">
             <%= if pledge.public? do %>
               <%= pledge.first_name %> <%= pledge.last_name %>

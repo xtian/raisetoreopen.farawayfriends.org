@@ -41,16 +41,11 @@ defmodule RaiseToReopenWeb.PageLive do
     {:noreply, socket}
   end
 
-  # @impl true
-  # def handle_info(:refresh, socket) do
-  #   {:noreply, socket |> schedule_refresh() |> assign_pledges()}
-  # end
-
   defp assign_pledges(socket) do
     pledges = Pledges.list_pledges()
-    raised = Enum.reduce(pledges, 0, fn {_, p}, acc -> p.amount + acc end)
+    raised = Enum.reduce(pledges, 0, fn {_, _, p}, acc -> p.amount + acc end)
 
-    assign(socket, filled: goal_percent(raised), pledges: Enum.take(pledges, 25), raised: raised)
+    assign(socket, filled: goal_percent(raised), pledges: Enum.take(pledges, 50), raised: raised)
   end
 
   defp delimit_integer(number) do
@@ -72,16 +67,4 @@ defmodule RaiseToReopenWeb.PageLive do
   defp reset_form(socket) do
     assign(socket, changeset: Pledges.change_pledge(%Pledge{}), pending_fill: 0)
   end
-
-  # defp init_schedule_refresh(socket) do
-  #   if connected?(socket) do
-  #     schedule_refresh(socket)
-  #   else
-  #     assign(socket, timer: nil)
-  #   end
-  # end
-
-  # defp schedule_refresh(socket) do
-  #   assign(socket, timer: Process.send_after(self(), :refresh, 1000))
-  # end
 end

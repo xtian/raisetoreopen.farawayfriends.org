@@ -1,6 +1,8 @@
 defmodule RaiseToReopenWeb.Router do
   use RaiseToReopenWeb, :router
 
+  import Plug.BasicAuth
+
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
@@ -10,8 +12,10 @@ defmodule RaiseToReopenWeb.Router do
     plug :put_secure_browser_headers
   end
 
-  pipeline :api do
-    plug :accepts, ["json"]
+  pipeline :admin do
+    plug :basic_auth,
+      username: "admin",
+      password: Application.compile_env!(:raise_to_reopen, :admin_password)
   end
 
   scope "/", RaiseToReopenWeb do
@@ -20,10 +24,14 @@ defmodule RaiseToReopenWeb.Router do
     live "/", PageLive, :index
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", RaiseToReopenWeb do
-  #   pipe_through :api
-  # end
+  scope "/admin", RaiseToReopenWeb do
+    pipe_through :browser
+    pipe_through :admin
+
+    live "/", AdminLive, :index
+
+    get "/export", PledgesController, :index
+  end
 
   # Enables LiveDashboard only for development
   #

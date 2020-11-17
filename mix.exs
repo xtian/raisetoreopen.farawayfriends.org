@@ -39,6 +39,7 @@ defmodule RaiseToReopen.MixProject do
       {:ecto, "~> 3.5"},
       {:floki, ">= 0.0.0", only: :test},
       {:jason, "~> 1.0"},
+      {:nimble_csv, "~> 1.1"},
       {:persistent_ets, "~> 0.2.1"},
       {:phoenix, "~> 1.5.4"},
       {:phoenix_ecto, "~> 4.2"},
@@ -49,7 +50,8 @@ defmodule RaiseToReopen.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:telemetry_metrics, "~> 0.4"},
       {:telemetry_poller, "~> 0.4"},
-      {:timex, "~> 3.6"}
+      {:timex, "~> 3.6"},
+      {:uuid, "~> 1.1"}
     ]
   end
 
