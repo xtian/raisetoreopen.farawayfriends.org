@@ -44,7 +44,7 @@ defmodule RaiseToReopenWeb.AdminLive do
               <td class="text-right">
                 <button
                   phx-click="delete" phx-value-id="<%= id %>"
-                  data-confirm="Delete this pledge for $<%= pledge.amount %>?"
+                  data-confirm="Delete pledge by <%= pledge.email %> for $<%= pledge.amount %>?"
                   class="bg-red text-white py-1 px-2 my-1 rounded-sm">Delete</button>
               </td>
             </tr>
