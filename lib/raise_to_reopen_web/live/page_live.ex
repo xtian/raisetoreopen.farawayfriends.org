@@ -89,6 +89,6 @@ defmodule RaiseToReopenWeb.PageLive do
   end
 
   defp schedule_refresh(socket) do
-    assign(socket, timer: Process.send_after(self(), :refresh, 1000))
+    assign(socket, timer: Process.send_after(self(), :refresh, 2000))
   end
 end
