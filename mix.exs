@@ -10,7 +10,8 @@ defmodule RaiseToReopen.MixProject do
       compilers: [:phoenix] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+      dialyzer: dialyzer()
     ]
   end
 
@@ -52,6 +53,18 @@ defmodule RaiseToReopen.MixProject do
       {:telemetry_poller, "~> 0.4"},
       {:timex, "~> 3.6"},
       {:uuid, "~> 1.1"}
+    ]
+  end
+
+  defp dialyzer do
+    [
+      flags: [
+        :error_handling,
+        :race_conditions,
+        :unmatched_returns
+      ],
+      ignore_warnings: "config/dialyzer_ignore.exs",
+      list_unused_filters: true
     ]
   end
 

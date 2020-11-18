@@ -48,9 +48,10 @@ defmodule RaiseToReopen.Pledges do
 
   def start_persistent_ets do
     data_directory = Application.fetch_env!(:raise_to_reopen, :data_directory)
+    pledges_file = Path.join(data_directory, "pledges.tab")
 
     File.mkdir_p!(data_directory)
-    PersistentEts.new(@pledges_table, Path.join(data_directory, "pledges.tab"), @table_options)
+    _ = PersistentEts.new(@pledges_table, pledges_file, @table_options)
 
     :ok
   end
