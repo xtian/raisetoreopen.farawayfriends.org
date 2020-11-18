@@ -9,12 +9,16 @@ html {
 @tailwind components;
 @tailwind utilities;
 
-.w-36 {
-  width: 9rem;
+.max-w-screen-2xl {
+  max-width: 1680px;
 }
 
-.text-xxs {
+.text-2xs {
   font-size: 0.65rem;
+}
+
+.w-36 {
+  width: 9rem;
 }
 
 @import "utilities.css";

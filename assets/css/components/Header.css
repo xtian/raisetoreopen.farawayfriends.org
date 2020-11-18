@@ -1,5 +1,5 @@
 .Header {
-  @apply flex flex-col items-center relative pt-16 pb-10 bg-cover text-white uppercase;
+  @apply bg-cover relative;
   background-image: url("../../images/jumping.jpg");
   background-position: 50% 15%;
 }
