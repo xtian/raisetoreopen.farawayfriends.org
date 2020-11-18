@@ -14,7 +14,25 @@
   </div>
 </header>
 
-<div class="AccentSectionA">
+<section>
+  <div class="max-w-screen-xl mx-auto p-8 flex flex-col items-center text-center">
+    <p class="text-pink-100 font-semibold text-lg md:text-lg lg:text-2xl">
+      250 students are waiting to return to school.
+    </p>
+    <p class="text-blue-300 font-semibold text-xl md:text-2xl lg:text-4xl">
+      You can help us reopen their classrooms.
+    </p>
+    <p class="mt-4 mb-10 text-sm sm:text-base font-light text-left sm:text-center">
+      After more than eight months of closure, <strong class="font-semibold">bringing kids back to school <em>safely</em> is of vital importance.</strong> You can help us reopen Global Leaders Primary School and bring back students safely this #GivingTuesday. Please pledge to join us <strong class="font-semibold">online on December 1st</strong> as we raise <strong class="font-semibold">$20,000 in just 24 hours</strong> to bring all of our 250 students back safely.
+    </p>
+    <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
+      <a href="#pledge-form" class="Button">Make your pledge</a>
+      <a href="https://www.farawayfriends.org/raise2reopen" class="Button">Learn More</a>
+    </div>
+  </div>
+</section>
+
+<section class="AccentSectionA">
   <div class="max-w-screen-2xl mx-auto py-8 sm:px-8 flex flex-col sm:flex-row text-white items-center justify-center sm:space-x-4">
     <div class="ProgressBar relative z-10 mb-4 sm:mb-0">
       <div class="ProgressBar-filled" style="width: <%= @filled %>%"></div>
@@ -23,15 +41,17 @@
 
     <div class="relative z-10 font-bold tracking-widest w-36 text-center sm:text-right">$<%= delimit_integer(@raised) %>/20,000</div>
   </div>
-</div>
+</section>
 
-<div class="AccentSectionB">
+<section class="AccentSectionB" id="pledge-form">
   <div class="max-w-screen-2xl mx-auto flex flex-col items-center md:pb-8 lg:items-stretch lg:py-8 lg:space-x-32 lg:flex-row lg:justify-center">
     <%= f = form_for @changeset, "#",
       phx_change: :validate,
       phx_submit: :save,
       class: "relative z-10 w-full md:w-10/12 p-8 lg:p-0 lg:w-1/4 flex flex-col items-start text-sm"
     %>
+      <h1 class="text-center text-white font-bold text-lg mb-4">Make Your Pledge</h1>
+
       <div class="relative w-full mb-4">
         <%= text_input f, :first_name, placeholder: "First Name", maxlength: 30,
           class: "w-full p-4 border border-gray-100" %>
@@ -81,9 +101,7 @@
         <%= error_tag f, :amount %>
       </div>
 
-      <button class="place-self-center mt-4 px-8 py-4 bg-yellow uppercase rounded-md text-sm text-white tracking-widest">
-        Submit Pledge
-      </button>
+      <button class="place-self-center mt-4 Button">Submit Pledge</button>
     </form>
 
     <%= unless Enum.empty?(@pledges) do %>
@@ -110,7 +128,7 @@
       </section>
     <% end %>
   </div>
-</div>
+</section>
 
 <footer class="p-16 text-2xs text-center space-y-6">
   <div class="max-w-screen-2xl mx-auto">

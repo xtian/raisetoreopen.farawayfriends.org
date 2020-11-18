@@ -7,7 +7,13 @@ defmodule RaiseToReopenWeb.AdminLive do
 
   @impl true
   def mount(_params, _session, socket) do
-    {:ok, socket |> init_schedule_refresh() |> assign_pledges()}
+    socket =
+      socket
+      |> init_schedule_refresh()
+      |> assign(page_title: "Raise To Reopen Admin")
+      |> assign_pledges()
+
+    {:ok, socket}
   end
 
   @impl true

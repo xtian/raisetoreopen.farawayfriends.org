@@ -10,7 +10,14 @@ defmodule RaiseToReopenWeb.PageLive do
 
   @impl true
   def mount(_params, _session, socket) do
-    {:ok, socket |> init_schedule_refresh() |> reset_form() |> assign_pledges()}
+    socket =
+      socket
+      |> init_schedule_refresh()
+      |> assign(page_title: "Make Your Raise to Reopen Pledge — Far Away Friends")
+      |> reset_form()
+      |> assign_pledges()
+
+    {:ok, socket}
   end
 
   @impl true

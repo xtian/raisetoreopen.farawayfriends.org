@@ -25,6 +25,7 @@ html {
 
 @import "components/AccentSectionA.css";
 @import "components/AccentSectionB.css";
+@import "components/Button.css";
 @import "components/Flash.css";
 @import "components/Footer.css";
 @import "components/Header.css";
