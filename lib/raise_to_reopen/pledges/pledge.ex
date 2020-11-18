@@ -11,6 +11,8 @@ defmodule RaiseToReopen.Pledges.Pledge do
     public?: true
   ]
 
+  @type t :: %__MODULE__{}
+
   @types %{
     amount: :integer,
     email: :string,

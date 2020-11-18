@@ -11,6 +11,7 @@ defmodule RaiseToReopen.Pledges do
     {:read_concurrency, true}
   ]
 
+  @spec list_pledges :: Enum.t()
   def list_pledges do
     @pledges_table
     |> :ets.tab2list()
@@ -23,6 +24,7 @@ defmodule RaiseToReopen.Pledges do
     end)
   end
 
+  @spec create_pledge(map) :: :ok | {:error, Ecto.Changeset.t()}
   def create_pledge(params) do
     result = %Pledge{} |> Pledge.changeset(params) |> Ecto.Changeset.apply_action(:insert)
 
@@ -33,12 +35,15 @@ defmodule RaiseToReopen.Pledges do
     end
   end
 
+  @spec change_pledge(Pledge.t(), map) :: Ecto.Changeset.t()
   def change_pledge(struct, params \\ %{}) do
     Pledge.changeset(struct, params)
   end
 
+  @spec delete_pledge(String.t()) :: :ok
   def delete_pledge(id) do
     :ets.match_delete(@pledges_table, {:_, id, :_})
+    :ok
   end
 
   def start_persistent_ets do
