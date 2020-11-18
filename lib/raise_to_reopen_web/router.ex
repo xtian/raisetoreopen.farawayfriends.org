@@ -33,6 +33,8 @@ defmodule RaiseToReopenWeb.Router do
     get "/export", PledgesController, :index
   end
 
+  get "/ping.txt", RaiseToReopenWeb.PingController, :index
+
   # Enables LiveDashboard only for development
   #
   # If you want to use the LiveDashboard in production, you should put
