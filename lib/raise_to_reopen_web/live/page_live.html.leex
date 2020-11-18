@@ -15,7 +15,7 @@
 <div class="AccentSectionA p-8 flex text-white items-center justify-center space-x-4">
   <div class="ProgressBar relative z-10">
     <div class="ProgressBar-filled" style="width: <%= @filled %>%"></div>
-    <div class="ProgressBar-pending" style="width: <%= @pending_fill %>%"></div>
+    <div class="ProgressBar-pending" style="width: <%= min(@pending_fill, 100 - @filled) %>%"></div>
   </div>
   <div class="relative z-10 font-bold tracking-widest w-36 text-right">$<%= delimit_integer(@raised) %>/20,000</div>
 </div>
