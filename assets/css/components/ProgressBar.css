@@ -1,5 +1,5 @@
 .ProgressBar {
-  @apply h-5 w-full flex items-start bg-white border-2 border-white rounded-sm overflow-hidden;
+  @apply h-5 w-full flex items-start bg-white border-2 border-white rounded-md overflow-hidden;
   max-width: 80%;
 }
 
