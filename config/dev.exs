@@ -2,7 +2,7 @@ import Config
 
 config :raise_to_reopen,
   admin_password: "pw",
-  pledges_table_file: Path.join(__DIR__, "../test/fixtures/pledges.tab")
+  data_directory: Path.join(__DIR__, "../test/fixtures/")
 
 # For development, we disable any cache and enable
 # debugging and code reloading.
