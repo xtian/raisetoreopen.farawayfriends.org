@@ -1,12 +1,16 @@
 module.exports = {
-  purge: [
-    "../lib/raise_to_reopen_web/components/**/*.ex",
-    "../lib/raise_to_reopen_web/components/**/*.html.leex",
-    "../lib/raise_to_reopen_web/live/**/*.ex",
-    "../lib/raise_to_reopen_web/live/**/*.html.leex",
-    "../lib/raise_to_reopen_web/templates/**/*.html.eex",
-    "../lib/raise_to_reopen_web/templates/**/*.html.leex",
-  ],
+  purge: {
+    enabled: process.env.MIX_ENV == "prod",
+    mode: "layers",
+    content: [
+      "../lib/raise_to_reopen_web/components/**/*.ex",
+      "../lib/raise_to_reopen_web/components/**/*.html.leex",
+      "../lib/raise_to_reopen_web/live/**/*.ex",
+      "../lib/raise_to_reopen_web/live/**/*.html.leex",
+      "../lib/raise_to_reopen_web/templates/**/*.html.eex",
+      "../lib/raise_to_reopen_web/templates/**/*.html.leex",
+    ],
+  },
   theme: {
     colors: {
       black: "#000",
