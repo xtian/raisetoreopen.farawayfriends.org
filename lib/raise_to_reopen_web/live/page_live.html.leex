@@ -15,13 +15,13 @@
 </header>
 
 <div class="AccentSectionA">
-  <div class="max-w-screen-2xl mx-auto p-8 flex text-white items-center justify-center space-x-4">
-    <div class="ProgressBar relative z-10">
+  <div class="max-w-screen-2xl mx-auto py-8 sm:px-8 flex flex-col sm:flex-row text-white items-center justify-center sm:space-x-4">
+    <div class="ProgressBar relative z-10 mb-4 sm:mb-0">
       <div class="ProgressBar-filled" style="width: <%= @filled %>%"></div>
       <div class="ProgressBar-pending" style="width: <%= min(@pending_fill, 100 - @filled) %>%"></div>
     </div>
 
-    <div class="relative z-10 font-bold tracking-widest w-36 text-right">$<%= delimit_integer(@raised) %>/20,000</div>
+    <div class="relative z-10 font-bold tracking-widest w-36 text-center sm:text-right">$<%= delimit_integer(@raised) %>/20,000</div>
   </div>
 </div>
 
