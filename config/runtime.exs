@@ -14,5 +14,5 @@ if config_env() == :prod do
 
   config :raise_to_reopen,
     admin_password: System.fetch_env!("ADMIN_PASSWORD"),
-    pledges_table_file: System.get_env("PLEDGES_TABLE_FILE", "/opt/pledges.tab")
+    pledges_table_file: System.get_env("PLEDGES_TABLE_FILE", "/app/pledges.tab")
 end
