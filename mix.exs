@@ -20,7 +20,7 @@ defmodule RaiseToReopen.MixProject do
   def application do
     [
       mod: {RaiseToReopen.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:crypto, :logger, :runtime_tools]
     ]
   end
 

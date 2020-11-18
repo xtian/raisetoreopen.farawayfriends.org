@@ -42,9 +42,7 @@ defmodule RaiseToReopen.Pledges do
   end
 
   def start_persistent_ets do
-    pledges_file =
-      Application.get_env(:raise_to_reopen, :pledges_table_file, "/opt/cache/pledges.tab")
-
+    pledges_file = Application.fetch_env!(:raise_to_reopen, :pledges_table_file)
     _ = PersistentEts.new(@pledges_table, pledges_file, @table_options)
 
     :ok

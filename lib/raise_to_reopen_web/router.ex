@@ -15,7 +15,7 @@ defmodule RaiseToReopenWeb.Router do
   pipeline :admin do
     plug :basic_auth,
       username: "admin",
-      password: Application.compile_env!(:raise_to_reopen, :admin_password)
+      password: Application.fetch_env!(:raise_to_reopen, :admin_password)
   end
 
   scope "/", RaiseToReopenWeb do
