@@ -13,7 +13,7 @@ defmodule RaiseToReopenWeb.AdminLive do
   @impl true
   def render(assigns) do
     ~L"""
-    <div class="w-full lg:w-3/4 px-8 mx-auto text-gray-600">
+    <div class="w-full lg:w-3/4 px-8 mx-auto text-gray-300">
       <h1 class="text-3xl font-bold my-4">Raise to Reopen Pledges Admin</h1>
 
       <div class="mb-4 flex justify-between">
