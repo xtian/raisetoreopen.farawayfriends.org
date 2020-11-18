@@ -61,14 +61,14 @@ defmodule RaiseToReopenWeb.PageLive do
   end
 
   defp delimit_integer(number) do
-    number |> abs() |> Integer.to_charlist() |> Enum.reverse() |> delimit_integer(",", [])
+    number |> Integer.to_charlist() |> Enum.reverse() |> delimit_integer([])
   end
 
-  defp delimit_integer([a, b, c, d | tail], ",", acc) do
-    delimit_integer([d | tail], ",", [",", c, b, a | acc])
+  defp delimit_integer([a, b, c, d | tail], acc) do
+    delimit_integer([d | tail], [",", c, b, a | acc])
   end
 
-  defp delimit_integer(list, _, acc) do
+  defp delimit_integer(list, acc) do
     Enum.reverse(list) ++ acc
   end
 
