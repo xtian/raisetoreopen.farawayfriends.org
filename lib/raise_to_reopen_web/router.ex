@@ -1,8 +1,6 @@
 defmodule RaiseToReopenWeb.Router do
   use RaiseToReopenWeb, :router
 
-  import Plug.BasicAuth
-
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
@@ -13,9 +11,7 @@ defmodule RaiseToReopenWeb.Router do
   end
 
   pipeline :admin do
-    plug :basic_auth,
-      username: "admin",
-      password: Application.fetch_env!(:raise_to_reopen, :admin_password)
+    plug :basic_auth
   end
 
   scope "/", RaiseToReopenWeb do
@@ -49,5 +45,10 @@ defmodule RaiseToReopenWeb.Router do
       pipe_through :browser
       live_dashboard "/dashboard", metrics: RaiseToReopenWeb.Telemetry
     end
+  end
+
+  defp basic_auth(conn, _opts) do
+    password = if Mix.env() == :prod, do: System.fetch_env!("ADMIN_PASSWORD"), else: "pw"
+    Plug.BasicAuth.basic_auth(conn, username: "admin", password: password)
   end
 end
